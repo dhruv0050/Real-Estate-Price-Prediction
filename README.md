@@ -1,6 +1,6 @@
 # Real Estate Price Predictor
 
-This is a web application designed to predict real estate prices in Bangalore, India. The prediction is based on key features such as location, total square feet, the number of bedrooms (BHK), and the number of bathrooms.
+This is a web application designed to predict real estate prices in Bengaluru, India. The prediction is based on key features such as location, total square feet, the number of bedrooms (BHK), and the number of bathrooms.
 
 The project consists of a Python Flask server that serves a machine learning model and a client-side web interface for users to interact with.
 
@@ -48,13 +48,13 @@ The project is organized into a `client` and a `server` directory.
 │   └── index.html
 ├── server/
 │   ├── artifacts/
-│   │   ├── banglore_home_prices_model.pickle  # ML Model
-│   │   └── columns.json                     # Model columns/features
-│   ├── server.py                            # Flask Server
-│   └── util.py                              # Helper functions
-├── images/                                  # For screenshots
-│   ├── screenshot1.png
-│   └── screenshot2.png
+│   │   ├── banglore_home_prices_model.pickle   # ML Model
+│   │   └── columns.json                        # Model columns
+│   ├── app.py                                  # Flask Server
+│   └── util.py                                 # Helper functions
+├── images/                                     # For screenshots
+│   ├── main_ui.png
+│   └── price_result.png
 └── README.md
 ```
 
