@@ -86,7 +86,7 @@ cd real-estate-price-prediction
     ```
 3.  Run the Flask server.
     ```bash
-    python server.py
+    python app.py
     ```
     The server will start on `http://127.0.0.1:5000`.
 
