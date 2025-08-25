@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Price Predictor</title>
+  <link rel="stylesheet" href="./app.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Real Estate Price Predictor</h1>
+
+    <div class="form-group">
+      <label for="uiSqft">Total Square Feet</label>
+      <input type="number" id="uiSqft" placeholder="e.g., 1200">
+    </div>
+
+    <div class="form-group">
+      <label>BHK</label>
+      <div class="options" id="bhkOptions">
+        <label><input type="radio" name="uiBHK" value="1"> 1</label>
+        <label><input type="radio" name="uiBHK" value="2"> 2</label>
+        <label><input type="radio" name="uiBHK" value="3" checked> 3</label>
+        <label><input type="radio" name="uiBHK" value="4"> 4</label>
+        <label><input type="radio" name="uiBHK" value="5"> 5</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Bathrooms</label>
+      <div class="options" id="bathOptions">
+        <label><input type="radio" name="uiBathrooms" value="1"> 1</label>
+        <label><input type="radio" name="uiBathrooms" value="2" checked> 2</label>
+        <label><input type="radio" name="uiBathrooms" value="3"> 3</label>
+        <label><input type="radio" name="uiBathrooms" value="4"> 4</label>
+        <label><input type="radio" name="uiBathrooms" value="5"> 5</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="uiLocations">Location</label>
+      <select id="uiLocations">
+        <option disabled selected>Loading locations...</option>
+      </select>
+    </div>
+
+    <button id="estimateBtn" onclick="onClickedEstimatePrice()">Estimate Price</button>
+
+    <div id="uiEstimatedPrice" class="result"></div>
+  </div>
+
+  <script src="./app.js"></script>
+  <script>
+    // Ensure default selections align with JS expectations
+    window.addEventListener('DOMContentLoaded', function() {
+      // No-op, onPageLoad in app.js will fetch locations
+    });
+  </script>
+</body>
+
+</html>

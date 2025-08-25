@@ -1,0 +1,515 @@
+:root {
+    /* Color Palette */
+    --primary-50: #eff6ff;
+    --primary-100: #dbeafe;
+    --primary-500: #3b82f6;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-900: #1e3a8a;
+    
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    
+    --success-500: #10b981;
+    --success-600: #059669;
+    
+    /* Typography */
+    --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-family-heading: 'Inter', var(--font-family-base);
+    
+    /* Spacing & Sizing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+    --spacing-3xl: 40px;
+    
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Transitions */
+    --transition-base: all 0.2s ease-in-out;
+    --transition-colors: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  
+  /* Dark theme as default */
+  :root {
+    /* Dark Color Palette */
+    --primary-50: #1e3a8a;
+    --primary-100: #1d4ed8;
+    --primary-500: #3b82f6;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-900: #1e3a8a;
+    
+    --gray-50: #0f172a;
+    --gray-100: #1e293b;
+    --gray-200: #334155;
+    --gray-300: #475569;
+    --gray-400: #64748b;
+    --gray-500: #94a3b8;
+    --gray-600: #cbd5e1;
+    --gray-700: #e2e8f0;
+    --gray-800: #f1f5f9;
+    --gray-900: #f8fafc;
+    
+    --success-500: #10b981;
+    --success-600: #059669;
+    
+    /* Background colors for dark theme */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #e2e8f0;
+    --text-muted: #94a3b8;
+  }
+  
+  /* Base Styles */
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family-base);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 720px;
+    margin: var(--spacing-3xl) auto;
+    padding: var(--spacing-2xl);
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-600), var(--success-500));
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+  }
+  
+  /* Typography */
+  h1 {
+    margin: 0 0 var(--spacing-xl) 0;
+    font-family: var(--font-family-heading);
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    letter-spacing: -0.025em;
+    position: relative;
+  }
+  
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
+    border-radius: 2px;
+  }
+  
+  /* Form Elements */
+  .form-group {
+    margin-bottom: var(--spacing-xl);
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .form-group:nth-child(1) { animation-delay: 0.1s; }
+  .form-group:nth-child(2) { animation-delay: 0.2s; }
+  .form-group:nth-child(3) { animation-delay: 0.3s; }
+  .form-group:nth-child(4) { animation-delay: 0.4s; }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Input Fields */
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 2px solid var(--gray-300);
+    border-radius: var(--border-radius-md);
+    transition: var(--transition-colors), box-shadow 0.2s ease;
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  input[type="number"]:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    background: var(--bg-primary);
+    box-shadow: 
+      0 0 0 3px rgba(59, 130, 246, 0.2),
+      inset 0 2px 4px rgba(0, 0, 0, 0.2),
+      0 8px 25px -8px rgba(59, 130, 246, 0.3);
+    transform: translateY(-1px);
+  }
+  
+  input[type="number"]::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  
+  /* Radio Button Options */
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    border: 2px solid var(--gray-300);
+    transition: var(--transition-colors);
+  }
+  
+  .options:hover {
+    border-color: var(--primary-500);
+  }
+  
+  .options label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 2px solid var(--gray-300);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-base);
+    user-select: none;
+    min-width: 60px;
+    justify-content: center;
+  }
+  
+  .options label:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: var(--primary-500);
+    color: var(--primary-500);
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 25px -8px rgba(59, 130, 246, 0.3),
+      0 0 0 1px rgba(59, 130, 246, 0.2);
+  }
+  
+  .options input[type="radio"] {
+    display: none;
+  }
+  
+  .options input[type="radio"]:checked + label,
+  .options label:has(input[type="radio"]:checked) {
+    background: var(--primary-500);
+    border-color: var(--primary-600);
+    color: white;
+    font-weight: 600;
+    box-shadow: 
+      0 8px 25px -8px rgba(59, 130, 246, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Button */
+  #estimateBtn {
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--spacing-lg);
+  }
+  
+  #estimateBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  #estimateBtn:hover {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  #estimateBtn:hover::before {
+    left: 100%;
+  }
+  
+  #estimateBtn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Result Display */
+  #uiEstimatedPrice {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--success-500);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 
+      0 8px 25px -8px rgba(16, 185, 129, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-base);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Show when it has content or explicit show class */
+  #uiEstimatedPrice:not(:empty),
+  #uiEstimatedPrice.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Enhanced styling for price display */
+  #uiEstimatedPrice::before {
+    font-size: 28px;
+    margin-right: var(--spacing-sm);
+  }
+  
+  /* Animation for when price appears */
+  @keyframes priceReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+    }
+    50% {
+      transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  #uiEstimatedPrice.animate {
+    animation: priceReveal 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  /* Loading States */
+  .loading {
+    position: relative;
+    pointer-events: none;
+  }
+  
+  .loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--gray-200);
+    border-top-color: var(--primary-500);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      margin: var(--spacing-lg);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+    }
+    
+    .options {
+      flex-direction: column;
+    }
+    
+    .options label {
+      justify-content: flex-start;
+      min-width: auto;
+    }
+    
+    h1 {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      margin: var(--spacing-md);
+      padding: var(--spacing-lg);
+    }
+    
+    h1 {
+      font-size: 20px;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .form-group {
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    input[type="number"],
+    select {
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    #estimateBtn {
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-size: 14px;
+    }
+    
+    #uiEstimatedPrice {
+      font-size: 20px;
+      padding: var(--spacing-lg);
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .container {
+      border: 3px solid var(--gray-900);
+      background: white;
+    }
+    
+    input[type="number"],
+    select,
+    .options {
+      border-width: 2px;
+    }
+    
+    #estimateBtn {
+      background: var(--gray-900);
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .form-group {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .container {
+      box-shadow: none;
+      border: 1px solid var(--gray-300);
+      background: white;
+    }
+    
+    #estimateBtn {
+      display: none;
+    }
+  }
