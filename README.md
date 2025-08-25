@@ -16,10 +16,11 @@ The project consists of a Python Flask server that serves a machine learning mod
 Here are a few screenshots of the application in action.
 
 **Main Interface:**
-!Main UI of the Real Estate Price Predictor
+![Main UI](images/main_ui.png)
 
 **Price Estimation Result:**
-!Price Estimation Result of the Real Estate Price Predictor
+![Price Result](images/price_result.png)
+
 
 ## Tech Stack
 
