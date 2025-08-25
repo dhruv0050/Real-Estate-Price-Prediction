@@ -1,4 +1,4 @@
-# Real Estate Price Predictor
+# Real Estate Price Prediction
 
 This is a web application designed to predict real estate prices in Bengaluru, India. The prediction is based on key features such as location, total square feet, the number of bedrooms (BHK), and the number of bathrooms.
 
